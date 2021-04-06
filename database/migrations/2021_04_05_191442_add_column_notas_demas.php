@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNotasTable extends Migration
+class AddColumnNotasDemas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateNotasTable extends Migration
      */
     public function up()
     {
-        Schema::create('notas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nombre');
+        Schema::table('notas', function (Blueprint $table) {
             $table->string('apellido');
-            $table->integer('telefono');
-            $table->text('direccion');
-            $table->text('pago');
-            $table->text('usuario');
-            $table->timestamps();
+            $table->string('direccion');
+            $table->string('telefono');
+            $table->string('pago');
+            $table->string('trabajo');
         });
     }
 
@@ -32,6 +29,6 @@ class CreateNotasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notas');
+        //
     }
 }

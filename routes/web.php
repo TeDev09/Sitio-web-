@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,13 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageControllerX@inicio');
 
-Auth::routes();
+Route::get('fotos/{numero?}','PageControllerX@fotos')->where('numero', '[0-9]+');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::view('casa', 'index',[ 'numero'=>125]) ->name('home');
+Route::view('miblog', 'blog')->name('principal');
+
+Route::get('nosotros/{nombre?}','PageControllerX@nosotros')->name('about');
+
+
+Route::get('notas', 'PageControllerX@notas')->name('notas');
+Route::get('Detalle/Nota{id}', 'PageControllerX@detalle')->name('notas.detalle');
+Route::post('notas', 'PageControllerX@crear')->name('notas.crear');
+Route::get('/Editar/{id}', 'PageControllerX@editar')->name('notas.editar');
+Route::put('/EditarNota/{id}','PageControllerX@update')->name('notas.update');
+Route::delete('eliminar/{id}', 'PageControllerX@eliminar')->name('notas.eliminar');
+
 
 Auth::routes();
 
