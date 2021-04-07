@@ -23,9 +23,9 @@ Route::view('miblog', 'blog')->name('principal');
 Route::get('nosotros/{nombre?}','PageControllerX@nosotros')->name('about');
 
 
-Route::get('notas', 'PageControllerX@notas')->name('notas');
+Route::get('Registrate', 'PageControllerX@notas')->name('notas');
 Route::get('Detalle/Nota{id}', 'PageControllerX@detalle')->name('notas.detalle');
-Route::post('notas', 'PageControllerX@crear')->name('notas.crear');
+Route::post('Registrate', 'PageControllerX@crear')->name('notas.crear');
 Route::get('/Editar/{id}', 'PageControllerX@editar')->name('notas.editar');
 Route::put('/EditarNota/{id}','PageControllerX@update')->name('notas.update');
 Route::delete('eliminar/{id}', 'PageControllerX@eliminar')->name('notas.eliminar');

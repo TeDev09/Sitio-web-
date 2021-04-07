@@ -52,7 +52,7 @@ class PageControllerX extends Controller
         $NotaNueva->pago = $request->pago;
         $NotaNueva->trabajo = $request->trabajo;
         $NotaNueva->save();
-        return back()->with('mnsj', 'Nota agregada :)');
+        return back()->with('mnsj', 'Datos agregados');
     }
     public function editar($id)
     {

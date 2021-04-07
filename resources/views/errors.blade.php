@@ -1,90 +1,41 @@
 @error('nombre')
-<div class="container">
-    <div class="row">
-        <div class="col s2 ">
-            <div class="cuadro_error">
-                <div class="center">
-                    <p class="p_error">
-                        No has introducido el nombre
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="chip">
+    <img src="https://th.bing.com/th/id/Rb6a4397743db63db457d6b1007091831?rik=M6kIZwl1oAU4iw&riu=http%3a%2f%2fst2.depositphotos.com%2f1454412%2f5924%2fi%2f950%2fdepositphotos_59246743-stock-photo-big-red-x-button.jpg&ehk=r7ItdEubX8ubwY%2bW08hfrxAZRnR3HNcHgZvgtfFhkzU%3d&risl=&pid=ImgRaw" alt="Error">
+    nombres
 </div>
 @enderror
 @error('apellido')
-<div class="container">
-    <div class="row">
-        <div class="col s2 ">
-            <div class="cuadro_error">
-                <div class="center">
-                    <p class="p_error">
-                        No has introducido el apellido
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div class="chip">
+    <img src="https://th.bing.com/th/id/Rb6a4397743db63db457d6b1007091831?rik=M6kIZwl1oAU4iw&riu=http%3a%2f%2fst2.depositphotos.com%2f1454412%2f5924%2fi%2f950%2fdepositphotos_59246743-stock-photo-big-red-x-button.jpg&ehk=r7ItdEubX8ubwY%2bW08hfrxAZRnR3HNcHgZvgtfFhkzU%3d&risl=&pid=ImgRaw" alt="Error">
+    apellidos
 </div>
 @enderror
 @error('telefono')
-<div class="container">
-    <div class="row">
-        <div class="col s2 ">
-            <div class="cuadro_error">
-                <div class="center">
-                    <p class="p_error">
-                        No has introducido el telefono
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div class="chip">
+    <img src="https://th.bing.com/th/id/Rb6a4397743db63db457d6b1007091831?rik=M6kIZwl1oAU4iw&riu=http%3a%2f%2fst2.depositphotos.com%2f1454412%2f5924%2fi%2f950%2fdepositphotos_59246743-stock-photo-big-red-x-button.jpg&ehk=r7ItdEubX8ubwY%2bW08hfrxAZRnR3HNcHgZvgtfFhkzU%3d&risl=&pid=ImgRaw" alt="Error">
+    telefono
 </div>
 @enderror
 @error('direccion')
-<div class="container">
-    <div class="row">
-        <div class="col s2 ">
-            <div class="cuadro_error">
-                <div class="center">
-                    <p class="p_error">
-                        No has introducido el direccion
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div class="chip">
+    <img src="https://th.bing.com/th/id/Rb6a4397743db63db457d6b1007091831?rik=M6kIZwl1oAU4iw&riu=http%3a%2f%2fst2.depositphotos.com%2f1454412%2f5924%2fi%2f950%2fdepositphotos_59246743-stock-photo-big-red-x-button.jpg&ehk=r7ItdEubX8ubwY%2bW08hfrxAZRnR3HNcHgZvgtfFhkzU%3d&risl=&pid=ImgRaw" alt="Error">
+    direccion
 </div>
 @enderror
 @error('pago')
-<div class="container">
-    <div class="row">
-        <div class="col s2 ">
-            <div class="cuadro_error">
-                <div class="center">
-                    <p class="p_error">
-                        No has introducido el pago
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div class="chip">
+    <img src="https://th.bing.com/th/id/Rb6a4397743db63db457d6b1007091831?rik=M6kIZwl1oAU4iw&riu=http%3a%2f%2fst2.depositphotos.com%2f1454412%2f5924%2fi%2f950%2fdepositphotos_59246743-stock-photo-big-red-x-button.jpg&ehk=r7ItdEubX8ubwY%2bW08hfrxAZRnR3HNcHgZvgtfFhkzU%3d&risl=&pid=ImgRaw" alt="Error">
+    pago
 </div>
 @enderror
 @error('trabajo')
-<div class="container">
-    <div class="row">
-        <div class="col s2 ">
-            <div class="cuadro_error">
-                <div class="center">
-                    <p class="p_error">
-                        No has introducido el trabajo
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div class="chip">
+    <img src="https://th.bing.com/th/id/Rb6a4397743db63db457d6b1007091831?rik=M6kIZwl1oAU4iw&riu=http%3a%2f%2fst2.depositphotos.com%2f1454412%2f5924%2fi%2f950%2fdepositphotos_59246743-stock-photo-big-red-x-button.jpg&ehk=r7ItdEubX8ubwY%2bW08hfrxAZRnR3HNcHgZvgtfFhkzU%3d&risl=&pid=ImgRaw" alt="Error">
+    trabajo
 </div>
 @enderror
