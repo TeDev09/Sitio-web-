@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnNotasDemas extends Migration
+class CreateUsuariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,19 @@ class AddColumnNotasDemas extends Migration
      */
     public function up()
     {
-        Schema::table('notas', function (Blueprint $table) {
+        Schema::create('usuarios', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('nombre');
             $table->string('apellido');
             $table->string('direccion');
             $table->string('telefono');
             $table->string('pago');
             $table->string('trabajo');
+            $table->string('token')->nullable();
+            $table->timestamps();
+            $table->rememberToken();
         });
     }
 
@@ -29,6 +36,6 @@ class AddColumnNotasDemas extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('usuarios');
     }
 }

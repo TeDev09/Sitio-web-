@@ -75,6 +75,11 @@
                     <form action=" {{ route('notas.crear') }} " method="POST">
                         @csrf
                         <div class="input-field">
+                            <input id="email" type="email" value="{{ old('email')}}" name="email">
+                            <label for="email">email</label>
+                        </div>
+                        
+                        <div class="input-field">
                             <input id="nombre" type="text" value="{{ old('nombre')}}" name="nombre">
                             <label for="nombre">Nombre</label>
                         </div>
@@ -89,6 +94,10 @@
                         </div>
                 </div>
                 <div class="col s6 push-s1">
+                <div class="input-field">
+                            <input id="password" type="password" value="{{ old('password')}}" name="password">
+                            <label for="password">password</label>
+                        </div>
                     <div class="input-field">
                         <input id="direccion" type="text" value="{{ old('direccion')}}" name="direccion">
                         <label for="direccion">direccion</label>

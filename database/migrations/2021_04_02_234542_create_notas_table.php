@@ -15,14 +15,17 @@ class CreateNotasTable extends Migration
     {
         Schema::create('datos_usu', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->string('nombre');
             $table->string('apellido');
             $table->string('direccion');
             $table->string('telefono');
             $table->string('pago');
             $table->string('trabajo');
-            $table->string('descripcion');
+            $table->string('token');
             $table->timestamps();
+            $table->rememberToken();
         });
     }
 
@@ -33,6 +36,6 @@ class CreateNotasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notas');
+        Schema::dropIfExists('datos_usu');
     }
 }

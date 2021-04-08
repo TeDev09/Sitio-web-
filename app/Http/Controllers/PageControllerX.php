@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Nota;
+use App\Models\Usuario;
+use Illuminate\Support\Facades\Validator;
 
 class PageControllerX extends Controller
 {
@@ -25,26 +26,32 @@ class PageControllerX extends Controller
     }
     public function notas()
     {
-        $notas = Nota::paginate(2);
+        $notas = Usuario::paginate(2);
         return view('notas', compact('notas'));
     }
     public function detalle($id)
     {
-        $nota = Nota::findOrFail($id);
+        $nota = Usuario::findOrFail($id);
         return view('notas.detalle', compact('nota'));
     }
+    
+
     public function crear(Request $request)
     {
         //return $request->all();
         $request->validate([
-            'nombre' => 'required',
-            'apellido' => 'required',
-            'telefono' => 'required',
-            'direccion' => 'required',
-            'pago' => 'required',
-            'trabajo' => 'required',
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
+            'nombre' => ['required', 'string', 'max:255'],
+            'apellido' => ['required', 'string', 'max:255'],
+            'telefono' => ['required', 'string', 'max:255'],
+            'direccion' => ['required', 'string', 'max:255'],
+            'pago' => ['required', 'string', 'max:255'],
+            'trabajo' => ['required', 'string', 'max:255'],
         ]);
-        $NotaNueva = new Nota;
+        $NotaNueva = new Usuario;
+        $NotaNueva->email = $request->email;
+        $NotaNueva->password = $request->password;
         $NotaNueva->nombre = $request->nombre;
         $NotaNueva->apellido = $request->apellido;
         $NotaNueva->telefono = $request->telefono;
@@ -56,12 +63,12 @@ class PageControllerX extends Controller
     }
     public function editar($id)
     {
-        $nota = Nota::findOrFail($id);
+        $nota = Usuario::findOrFail($id);
         return view('notas.editar', compact('nota'));
     }
     public function update(Request $request, $id)
     {
-        $notaupdate = Nota::findOrFail($id);
+        $notaupdate = Usuario::findOrFail($id);
         $notaupdate->nombre = $request->nombre;
         $notaupdate->descripcion = $request->descripcion;
 
@@ -70,7 +77,7 @@ class PageControllerX extends Controller
         return back()->with('mnsj', 'Nota acctualizada');
     }
     public function eliminar($id){
-        $NotaEliminar = Nota::findOrFail($id);
+        $NotaEliminar = Usuario::findOrFail($id);
         $NotaEliminar->delete();
 
         return back()->with('mnsj', 'Nota eliminada');
