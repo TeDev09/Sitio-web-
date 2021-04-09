@@ -9,21 +9,6 @@ use Illuminate\Support\Facades\Validator;
 class PageControllerX extends Controller
 {
     
-    public function inicio()
-    {
-        return view('index', ['numero' => 125]);
-    }
-    public function fotos($numero = 'sin numero')
-    {
-        return 'galería de fotos ' . $numero;
-    }
-    public function nosotros($nombre = null)
-    {
-        $equipo = ['Ignacio', 'Juan', 'Ted'];
-        /* return view('nosotros', ['equipo'=>$equipo]);
-         */
-        return view('nosotros', compact('equipo', 'nombre'));
-    }
     public function notas()
     {
         $notas = Usuario::paginate(2);
@@ -35,12 +20,14 @@ class PageControllerX extends Controller
         return view('notas.detalle', compact('nota'));
     }
     
-
+    public function principal(){
+        return view('sitio.inicio');
+    }
     public function crear(Request $request)
     {
         //return $request->all();
         $request->validate([
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios,email'],
             'password' => ['required', 'string', 'min:8'],
             'nombre' => ['required', 'string', 'max:255'],
             'apellido' => ['required', 'string', 'max:255'],

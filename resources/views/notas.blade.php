@@ -55,7 +55,7 @@
                     @if ($errors->any())
                     <div>
                         <div class="divider"></div>
-                        <h5><b>No has rellenado los campos:</b></h5>
+                        <h5><b>Revisa los campos:</b></h5>
                         <div class="divider"></div>
                         <br>
                         @include('errors')
@@ -133,65 +133,6 @@
 <br>
 <div class="divider"></div>
 </div>
-<!-- <div class="col s12 push-s1">
-    <p>ㅤ</p>
-    <div class="divider"></div>
-    <br><br>
-    <div>
-        <table style="background-color: #586063; color: black;" data-aos="fade-right">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombres</th>
-                    <th>Apelidos</th>
-                    <th>Telefono</th>
-                    <th>Dirección</th>
-                    <th>Pago hora</th>
-                    <th>Trabajo</th>
-                    <th>Descripción</th>
-                    <th>Borrar</th>
-                    <th>Editar</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($notas as $item)
-                <tr>
-                    <th><a href="{{ route('notas.detalle', $item) }}">{{$item->id}}</a></th>
-                    <td>
-                        {{$item->nombre}}
-                    </td>
-                    <td>{{$item->apellido}}</td>
-                    <td>{{$item->telefono}}</td>
-                    <td>{{$item->direccion}}</td>
-                    <td>{{$item->pago}}</td>
-                    <td>{{$item->trabajo}}</td>
-                    <td>{{$item->descripcion}}</td>
-                    <td>
-
-                        <form method="POST" action="{{ route('notas.eliminar', $item) }}">
-                            @method('DELETE')
-                            @csrf
-                            <button class="btn " type="submit" name="action">
-                                <i class="material-icons right">delete_forever</i>
-                            </button>
-                        </form>
-
-                    </td>
-                    <td>
-
-                        <a href=" {{route('notas.editar',$item)}} " class="btn"><i class="material-icons">create</i></a>
-
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-    <br><br>
-    <div style="overflow: hidden;">{{ $notas->links() }}</div>
-    <div class="divider"></div>
-</div>
- -->
 <script>
     var chip = {
         tag: 'chip content'
