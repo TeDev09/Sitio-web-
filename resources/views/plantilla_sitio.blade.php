@@ -91,6 +91,9 @@
                     <div class="divider"></div>
                     <a href="#">Efectivo</a>
                     <div class="divider"></div>
+                    <div style="overflow: hidden;">
+                    <a href="">{{ $notas->links() }}</a>
+                    </div>
                 </nav>
             </div>
     </div>
@@ -100,7 +103,7 @@
                 <div class="row">
                     <div class="col s12">
                     
-                    <div style="background-color: #4f53ff" class="col s12">
+                    <div style="background-color: #b1b1b1" class="col s12">
                         @yield('cuadro')
                     </div>
                     </div>

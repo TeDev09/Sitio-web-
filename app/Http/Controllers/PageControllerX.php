@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class PageControllerX extends Controller
 {
     
     public function notas()
     {
-        $notas = Usuario::paginate(2);
+        $notas = Usuario::paginate(3);
         return view('notas', compact('notas'));
     }
     public function detalle($id)
@@ -21,7 +22,8 @@ class PageControllerX extends Controller
     }
     
     public function principal(){
-        return view('sitio.inicio');
+        $notas = Usuario::paginate(3);
+        return view('sitio.inicio', compact('notas'));
     }
     public function crear(Request $request)
     {
