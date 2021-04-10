@@ -6,9 +6,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <style>
-    .main {
-        padding-top: 250px;
-    }
     body {
         background-color: #d3d1d2;
     }
@@ -60,36 +57,21 @@
 </head>
 
 <body>
-    <div class="center main" id="circulo">
-        <div class="preloader-wrapper big active">
-            <div class="spinner-layer spinner-blue-only">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="hide" id="contenido">
+    <div id="contenido">
     <div class="col s12">
         <div class="col s3">
                 <div id="nav" class="sideBar" style="border-right: 1px solid white;">
-                    <a href="#" data-aos="fade-down" data-aos-duration="2000">Tu cuenta</a>
+                    <a href="#" data-aos="fade-down" data-aos-duration="300">Tu cuenta</a>
                     <div class="divider"></div>
-                    <a href="#">Inicio</a>
+                    <a href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="100">Inicio</a>
                     <div class="divider"></div>
-                    <a class="selected" href="#">Datos</a>
+                    <a class="selected" href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="200">Datos</a>
                     <div class="divider"></div>
-                    <a href="#">Administración</a>
+                    <a href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="300">Administración</a>
                     <div class="divider"></div>
-                    <a href="#">Cuentas</a>
+                    <a href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="400">Cuentas</a>
                     <div class="divider"></div>
-                    <a href="#">Efectivo</a>
+                    <a href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="500">Efectivo</a>
                     <div class="divider"></div>
                 </nav>
             </div>
@@ -114,14 +96,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
-        window.addEventListener('load', () => {
-            setTimeout(carga, 500);
-
-            function carga() {
-                document.getElementById('circulo').className = 'hide';
-                document.getElementById('contenido').className = 'center';
-            }
-        })
     </script>
 </body>
 
