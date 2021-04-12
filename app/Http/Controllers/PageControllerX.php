@@ -22,7 +22,7 @@ class PageControllerX extends Controller
     }
     
     public function principal(){
-        $notas = Usuario::paginate(2);
+        $notas = Usuario::paginate(3);
         return view('sitio.inicio', compact('notas'));
     }
     public function crear(Request $request)

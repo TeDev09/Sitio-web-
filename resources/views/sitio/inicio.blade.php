@@ -1,11 +1,13 @@
 @extends('plantilla_simple')
 @section('cuadro')
+<style>
+body {
+    text-decoration: none !important;
+}
+</style>
 <br>
 <div style="background-color: #b1b1b1" class="col s12">
     <h3 class="center">Gestión de empleados</h3>
-    <div style="overflow: hidden;">
-        <a href="">{{ $notas->links() }}</a>
-    </div>
 </div>
 <br><br>
 <div class="contenido section">
@@ -24,7 +26,7 @@
                         <th data-aos="fade-up" data-aos-duration="1000">Dirección</th>
                         <th data-aos="fade-up" data-aos-duration="1000">Pago hora</th>
                         <th data-aos="fade-up" data-aos-duration="1000">Trabajo</th>
-                        <th data-aos="fade-up" data-aos-duration="1000">Creado</th>
+                        <th data-aos="fade-up" data-aos-duration="1000">Detalles/Acciones</th>
                         <th data-aos="fade-up" data-aos-duration="1000">Borrar</th>
                         <th data-aos="fade-up" data-aos-duration="1000">Editar</th>
                     </tr>
@@ -32,16 +34,16 @@
                 <tbody>
                     @foreach ($notas as $item)
                     <tr>
-                        <th><a href="{{ route('notas.detalle', $item) }}">{{$item->id}}</a></th>
-                        <td>
+                        <th>{{$item->id}}</th>
+                        <td data-aos="fade-up" data-aos-duration="1000">
                             {{$item->nombre}}
                         </td>
-                        <td>{{$item->apellido}}</td>
-                        <td>{{$item->telefono}}</td>
-                        <td>{{$item->direccion}}</td>
-                        <td>{{$item->pago}}</td>
-                        <td>{{$item->trabajo}}</td>
-                        <td>{{$item->created_at->format('d M Y')}}</td>
+                        <td data-aos="fade-up" data-aos-duration="1000">{{$item->apellido}}</td>
+                        <td data-aos="fade-up" data-aos-duration="1000">{{$item->telefono}}</td>
+                        <td data-aos="fade-up" data-aos-duration="1000">{{$item->direccion}}</td>
+                        <td data-aos="fade-up" data-aos-duration="1000">{{$item->pago}}</td>
+                        <td data-aos="fade-up" data-aos-duration="1000">{{$item->trabajo}}</td>
+                        <td data-aos="fade-up" data-aos-duration="1000"><a href="{{ route('notas.detalle', $item) }}">Administrar</a></td>
                         <td>
                             <form method="POST" action="{{ route('notas.eliminar', $item) }}">
                                 @method('DELETE')
@@ -59,6 +61,11 @@
                 </tbody>
             </table>
             <div class="divider"></div>
+            <br>
+            <div  class="col s4 push-s4 center" style="background-color:#a0a0a0;">
+                <div data-aos="fade-up" data-aos-duration="1000"><a href="">{{ $notas->links() }}</a></div>
+            </div>
+            <br>
         </div>
         <br><br>
     </div>
