@@ -9,6 +9,9 @@ use Carbon\Carbon;
 
 class PageControllerX extends Controller
 {
+    public function login(Request $request){ 
+        return view('login');
+    }
     
     public function notas()
     {

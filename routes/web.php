@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Auth;
 Route::get('Registrate', 'PageControllerX@notas')->name('notas');
 Route::post('Registrate', 'PageControllerX@crear')->name('notas.crear');
 Route::get('/inicio', 'PageControllerX@principal')->name('principal');
-Route::post('/Logueate', 'PageControllerX@login')->name('login');
+
+Route::get('/logueate', 'PageControllerX@login')->name('login');
+Route::post('/logueate', 'PageControllerX@login')->name('login.usuario');
 
 
 Route::get('Detalle/UserID_{id}', 'PageControllerX@detalle')->name('notas.detalle');
@@ -27,4 +29,3 @@ Route::delete('eliminar/{id}', 'PageControllerX@eliminar')->name('notas.eliminar
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
