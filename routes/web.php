@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('Registrate', 'PageControllerX@notas')->name('notas');
 Route::post('Registrate', 'PageControllerX@crear')->name('notas.crear');
 Route::get('/inicio', 'PageControllerX@principal')->name('principal');
+Route::post('/Logueate', 'PageControllerX@login')->name('login');
+
 
 Route::get('Detalle/UserID_{id}', 'PageControllerX@detalle')->name('notas.detalle');
 Route::get('/Editar/{id}', 'PageControllerX@editar')->name('notas.editar');
