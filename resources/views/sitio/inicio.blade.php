@@ -27,35 +27,19 @@ body {
                         <th data-aos="fade-up" data-aos-duration="1000">Pago hora</th>
                         <th data-aos="fade-up" data-aos-duration="1000">Trabajo</th>
                         <th data-aos="fade-up" data-aos-duration="1000">Detalles/Acciones</th>
-                        <th data-aos="fade-up" data-aos-duration="1000">Borrar</th>
-                        <th data-aos="fade-up" data-aos-duration="1000">Editar</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($notas as $item)
                     <tr>
                         <th>{{$item->id}}</th>
-                        <td data-aos="fade-up" data-aos-duration="1000">
-                            {{$item->nombre}}
-                        </td>
+                        <td data-aos="fade-up" data-aos-duration="1000">{{$item->nombre}}</td>
                         <td data-aos="fade-up" data-aos-duration="1000">{{$item->apellido}}</td>
                         <td data-aos="fade-up" data-aos-duration="1000">{{$item->telefono}}</td>
                         <td data-aos="fade-up" data-aos-duration="1000">{{$item->direccion}}</td>
                         <td data-aos="fade-up" data-aos-duration="1000">{{$item->pago}}</td>
                         <td data-aos="fade-up" data-aos-duration="1000">{{$item->trabajo}}</td>
-                        <td data-aos="fade-up" data-aos-duration="1000"><a href="{{ route('notas.detalle', $item) }}">Administrar</a></td>
-                        <td>
-                            <form method="POST" action="{{ route('notas.eliminar', $item) }}">
-                                @method('DELETE')
-                                @csrf
-                                <button class="btn " type="submit" name="action">
-                                    <i class="material-icons right">delete_forever</i>
-                                </button>
-                            </form>
-                        </td>
-                        <td>
-                            <a href=" {{route('notas.editar',$item)}} " class="btn"><i class="material-icons">create</i></a>
-                        </td>
+                        <td data-aos="fade-up" data-aos-duration="1000"><a href="{{ route('notas.detalle', $item) }}">Administrar<i class="small material-icons left">insert_chart</i></a></td>
                     </tr>
                     @endforeach
                 </tbody>
