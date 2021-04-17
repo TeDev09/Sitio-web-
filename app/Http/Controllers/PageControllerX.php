@@ -4,14 +4,45 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 
 class PageControllerX extends Controller
 {
-    public function login(Request $request){ 
+    public function login(){ 
         return view('login');
     }
+    public function login_usuario(Request $request){ 
+        #return dd($request->all());
+        $data = request()->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ],
+        [
+            'email.required' => 'Ingrese un Email',
+            'password.required' => 'Ingrese un Password'
+        ]);
+        if (Auth::attempt($data)){ 
+            $con='OK';
+        }
+        $email=$request->get('email');
+        $pass=$request->get('password');
+        $query = Usuario::where('email','=',$email)->get();
+        if ($query->count() !=0){ 
+            $query2= Usuario::where('password','=',$pass)->get();
+            if($query2->count() !=0){
+                return 'BIENVENIDO';
+            }else{ 
+                return back()->withErrors(['password'=>'Contraseña no valida'])->withInput([request('password')]);
+            }
+        }
+        else
+        { 
+            return back()->withErrors(['email'=>'email no valido'])->withInput([request('name')]);
+        }
+    }
+
     
     public function notas()
     {
@@ -30,10 +61,10 @@ class PageControllerX extends Controller
     }
     public function crear(Request $request)
     {
-        //return $request->all();
+        return dd($request->all());
         $request->validate([
             'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios,email'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string'],
             'nombre' => ['required', 'string', 'max:255'],
             'apellido' => ['required', 'string', 'max:255'],
             'telefono' => ['required', 'string', 'max:255'],

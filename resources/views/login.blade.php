@@ -27,7 +27,8 @@
         border-radius: 30px 30px 30px 30px;
         background-color: #d90000;
         color: white;
-    }    
+    }
+
     .divi {
         border-top: 6px solid rgb(0, 0, 0);
         width: 100%;
@@ -49,7 +50,12 @@
                         <h5><b>Revisa los campos:</b></h5>
                         <div class="divider"></div>
                         <br>
-                        @include('errors')
+                        @error('email')
+                        <strong>{{$message}}</strong>
+                        @enderror
+                        @error('password')
+                        <strong>{{$message}}</strong>
+                        @enderror
                         <br>
                         <div class="divider"></div>
                     </div>
@@ -71,10 +77,10 @@
                         </div>
                 </div>
                 <div class="col s12">
-                <div class="input-field">
-                            <input id="password" type="password" value="{{ old('password')}}" name="password">
-                            <label for="password">password</label>
-                        </div>
+                    <div class="input-field">
+                        <input id="password" type="password" value="{{ old('password')}}" name="password">
+                        <label for="password">password</label>
+                    </div>
                 </div>
                 <br>
                 <div>

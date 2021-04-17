@@ -19,7 +19,7 @@ Route::post('Registrate', 'PageControllerX@crear')->name('notas.crear');
 Route::get('/inicio', 'PageControllerX@principal')->name('principal');
 
 Route::get('/logueate', 'PageControllerX@login')->name('login');
-Route::post('/logueate', 'PageControllerX@login')->name('login.usuario');
+Route::post('/logueate', 'PageControllerX@login_usuario')->name('login.usuario');
 
 
 Route::get('Detalle/UserID_{id}', 'PageControllerX@detalle')->name('notas.detalle');
