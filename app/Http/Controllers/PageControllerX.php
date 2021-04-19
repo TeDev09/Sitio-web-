@@ -7,9 +7,15 @@ use App\Models\Usuario;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use App\Providers\RouteServiceProvider;
 
 class PageControllerX extends Controller
 {
+    protected $redirectTo = RouteServiceProvider::HOME;
+    public function __construct(){
+            $this->middleware('auth')->only('principal','notas.detalle','notas.eliminar','notas.editar','notas.update');
+            
+    }
     public function login(){ 
         return view('login');
     }
@@ -32,7 +38,9 @@ class PageControllerX extends Controller
         if ($query->count() !=0){ 
             $query2= Usuario::where('password','=',$pass)->get();
             if($query2->count() !=0){
-                return 'BIENVENIDO';
+                $_SESSION["usuario"] = "usuario";
+                $usuario = $_SESSION['usuario'];
+                return redirect('/inicio');
             }else{ 
                 return back()->withErrors(['password'=>'Contraseña no valida'])->withInput([request('password')]);
             }

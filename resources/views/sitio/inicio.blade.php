@@ -5,6 +5,13 @@ body {
     text-decoration: none !important;
 }
 </style>
+@if (isset($_SESSION['usuario']))
+    
+@else
+<?php
+header("location:./login.blade.php");
+?>
+@endif
 <br>
 <div style="background-color: #b1b1b1" class="col s12">
     <h3 class="center">Gestión de empleados</h3>
