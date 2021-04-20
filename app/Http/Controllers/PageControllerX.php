@@ -11,13 +11,16 @@ use App\Providers\RouteServiceProvider;
 
 class PageControllerX extends Controller
 {
-    protected $redirectTo = RouteServiceProvider::HOME;
-    public function __construct(){
-            $this->middleware('auth')->only('principal','notas.detalle','notas.eliminar','notas.editar','notas.update');
-            
-    }
+   
+ 
     public function login(){ 
         return view('login');
+    }
+    public function cierre (){ 
+        return view('sitio.logout_user');
+    }
+    public function validacion_u(){ 
+        return view('sitio.puente');
     }
     public function login_usuario(Request $request){ 
         #return dd($request->all());
@@ -38,9 +41,9 @@ class PageControllerX extends Controller
         if ($query->count() !=0){ 
             $query2= Usuario::where('password','=',$pass)->get();
             if($query2->count() !=0){
-                $_SESSION["usuario"] = "usuario";
-                $usuario = $_SESSION['usuario'];
-                return redirect('/inicio');
+                $_SESSION["usuario"] = "Registrado como usuario ";
+                $usuario_dem = $_SESSION['usuario'];
+                return view('sitio.validacion', compact('usuario_dem'));
             }else{ 
                 return back()->withErrors(['password'=>'Contraseña no valida'])->withInput([request('password')]);
             }

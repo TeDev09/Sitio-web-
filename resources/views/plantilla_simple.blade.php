@@ -82,9 +82,41 @@
                 <div class="row">
                     <div class="col s12">
                     
+                    <?php
+                    session_start();
+                    ?>
+                    @if (isset($_SESSION['usuario']))
                     <div style="background-color: #b1b1b1" class="col s12">
-                        @yield('cuadro')
+                    <?php
+                        echo $_SESSION['usuario'];
+                        ?>
+                    <a href="{{ route('cierre') }}">ir</a>
+                    @yield('cuadro')
                     </div>
+                    @else
+                    <?php
+                    echo 'Debes estar logueado';
+                    ?>
+                    <style>
+                     .cuad {
+                    background-color: #d3d1d2;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 200px;
+                        }
+                    </style>
+                    <div class="cuad">
+                        <div style="background-color: #b1b1b1" class="col s12">
+                        <div class="col s8 push-s2">
+                            <h3 class="center">DEBES ESTAR LOGUEADO PARA VISUALIZAR ESTE CONTENIDO</h3>
+                            <div class="divider"></div>
+                            <h4 style="display: inline-block;"><a href="{{ route('login') }}">LOGUEARSE</a></h4>
+                            <h4 style="display: inline-block;" class="right"><a href="{{ route('notas') }}">CREAR CUENTA</a></h4>
+                        </div>
+                        </div>
+                    </div>
+                    @endif
                     </div>
                 </div>
             </div>
