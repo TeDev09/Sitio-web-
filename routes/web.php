@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/validar', 'PageControllerX@validacion_u')->name('validante_u');
 
 
@@ -30,7 +31,5 @@ Route::post('/logueate', 'PageControllerX@login_usuario')->name('login.usuario')
 
 Route::get('Detalle/UserID_{id}', 'PageControllerX@detalle')->name('notas.detalle');
 Route::get('/Editar/{id}', 'PageControllerX@editar')->name('notas.editar');
-Route::put('/EditarNota/{id}','PageControllerX@update')->name('notas.update');
+Route::put('/EditarNota/{id}', 'PageControllerX@update')->name('notas.update');
 Route::delete('eliminar/{id}', 'PageControllerX@eliminar')->name('notas.eliminar');
-
-

@@ -1,6 +1,7 @@
 <?php
 session_start();
-?><html lang="es">
+?>
+<html lang="es">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +45,7 @@ session_start();
     div.content {
         margin-left: 210px;
         padding: 1px 16px;
-        
+
     }
 
     @media screen and (max-width: 700px) {
@@ -83,7 +84,7 @@ session_start();
                     <div class="divider"></div>
                     <a href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="500">Efectivo</a>
                     <div class="divider"></div>
-                    @if (isset($_SESSION['usuario']))
+                    @if (isset($_SESSION['usuario']) or isset($_SESSION['sup']) or isset($_SESSION['admin']))
                     <a href="{{ route('cierre') }}" data-aos="fade-down" data-aos-duration="300" data-aos-delay="500">Salir</a>
                     <div class="divider"></div>
                     @else
@@ -93,99 +94,111 @@ session_start();
                     </nav>
                 </div>
             </div>
-            </div>
+        </div>
+        <div class="content">
+            <?php
+            if (isset($_SESSION['admin']) or isset($_SESSION['sup']) or isset($_SESSION['usuario'])) {
+                if (isset($_SESSION['admin'])) {
+            ?>
+                    <div class="section">
+                        <div class="row">
+                            <div class="col s12">
+                                <div style="background-color: #b1b1b1" class="col s12">
+                                    <?php
+                                    echo $_SESSION['admin'] . ' <---Indicador de rol';
+                                    ?>
+                                    <a href="{{ route('cierre') }}">Cerrar sesión</a>
+                                    @yield('cuadro')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+                }
+                if (isset($_SESSION['sup'])) {
+                ?>
+                    <div class="section">
+                        <div class="row">
+                            <div class="col s12">
+                                <div style="background-color: #b1b1b1" class="col s12">
+                                    <?php
+                                    echo $_SESSION['sup'] . ' <---Indicador de rol';
+                                    ?>
+                                    <a href="{{ route('cierre') }}">Cerrar sesión</a>
+                                    @yield('cuadro')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+                }
+                if (isset($_SESSION['usuario'])) {
+                ?>
 
-            
-            
-            <div class="content">
-                @if (isset($_SESSION['usuario']))
-                <div class="section">
-                    <div class="row">
-                        <div class="col s12">
-                            <div style="background-color: #b1b1b1" class="col s12">
-                                <?php
-                                echo $_SESSION['usuario'];
-                                ?>
-                                <a href="{{ route('cierre') }}">ir</a>
-                                @yield('cuadro')
+                    <div class="section">
+                        <div class="row">
+                            <div class="col s12">
+                                <div style="background-color: #b1b1b1" class="col s12">
+                                    <?php
+                                    echo $_SESSION['usuario'] . ' <---Indicador de rol';
+                                    ?>
+                                    <a href="{{ route('cierre') }}">Cerrar sesión</a>
+                                    @yield('cuadro')
+                                </div>
                             </div>
+                        </div>
+                    </div>
+
+                <?php
+                }
+            } else {
+                ?>
+                <style>
+                    .cuad {
+                        background-color: #d3d1d2;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding-top: 150px;
+                    }
+
+                    .cuadro {
+                        background-color: white;
+                        border: 2px solid white;
+                        width: auto;
+                        border-radius: 30px 30px 30px 30px;
+                    }
+
+                    .divi {
+                        border-top: 6px solid rgb(0, 0, 0);
+                        width: 100%;
+                        float: left;
+                    }
+                </style>
+                <div class="cuad">
+                    <div class="cuadro">
+                        <div class="section container">
+                            <div class="row">
+                                <div>
+                                    <p>
+                                    <div class="center">
+                                        <h3 class="center">DEBES ESTAR LOGUEADO PARA VISUALIZAR ESTE CONTENIDO</h3>
+                                        <div class="divider"></div>
+                                        <h4 style="display: inline-block;" class="left"><a href="{{ route('login') }}">LOGUEARSE</a></h4>
+                                        <h4 style="display: inline-block;" class="center"><a href="{{ route('admin') }}">Admin</a></h4>
+                                        <h4 style="display: inline-block;" class="right"><a href="{{ route('notas') }}">CREAR CUENTA</a></h4>
+                                    </div>
+                                </div>
+                                </p>
                             </div>
+                        </div>
                     </div>
                 </div>
-                            @else
-                            <?php
-                            #echo 'Debes estar logueado';
-                            ?>
-                            <style>
-                                .cuad {
-                                    background-color: #d3d1d2;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    padding-top: 150px;
-                                }
-                                .cuadro {
-                                    background-color: white;
-                                    border: 2px solid white;
-                                    width:auto;
-                                    border-radius: 30px 30px 30px 30px;
-                                }
-                                .divi {
-                                    border-top: 6px solid rgb(0, 0, 0);
-                                    width: 100%;
-                                    float: left;
-                                }
-                            </style>
-                            
-
-
-
-
-                            <div class="cuad">
-                                <div class="cuadro">
-                                        <div class="section container">
-                                            <div class="row">
-                                                <div>
-                                                    <p>
-                                                    <div class="center">
-                                                    
-                                    
-                                            <h3 class="center">DEBES ESTAR LOGUEADO PARA VISUALIZAR ESTE CONTENIDO</h3>
-                                            <div class="divider"></div>
-                                            <h4 style="display: inline-block;"class="left"><a href="{{ route('login') }}">LOGUEARSE</a></h4>
-                                            <h4 style="display: inline-block;" class="center"><a href="{{ route('notas') }}">Admin</a></h4>
-                                            <h4 style="display: inline-block;" class="right"><a href="{{ route('notas') }}">CREAR CUENTA</a></h4>
-                                        
-                                    
-                                                    </div>
-                                                </div>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            
-                            @endif
-                       
-            
+            <?php
+            }
+            #echo 'Debes estar logueado';
+            ?>
         </div>
-
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

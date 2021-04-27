@@ -17,34 +17,35 @@ class PageControllerX extends Controller
     {
         return view('sitio.Admin');
     }
-    public function admin_verify(Request $request){
+    public function admin_verify(Request $request)
+    {
         #return dd($request->all());
         $passAdm = $request->get('password_admin');
         $passSup = $request->get('password_supervisor');
-        if (!empty($passAdm) or !empty($passSup)){ 
-        if (isset($passAdm)){
-            $query2 = Admin::where('password', '=', $passAdm)->get();
-            if ($query2->count() != 0) {
-                $_SESSION["admin"] = "Registrado como ADMINISTRADOR ";
-                $ADMINISTRADOR = $_SESSION['admin'];
-                return view('sitio.validacion', compact('ADMINISTRADOR'));
-            }else{
-                return back()->withErrors(['passAdm' => 'Contraseña  de Admin no valida'])->withInput([request('password')]);
+        if (!empty($passAdm) or !empty($passSup)) {
+            if (isset($passAdm)) {
+                $query2 = Admin::where('password', '=', $passAdm)->get();
+                if ($query2->count() != 0) {
+                    $_SESSION["admin"] = "Registrado como ADMINISTRADOR ";
+                    $ADMINISTRADOR = $_SESSION['admin'];
+                    return view('sitio.validacion', compact('ADMINISTRADOR'));
+                } else {
+                    return back()->withErrors(['passAdm' => 'Contraseña  de Admin no valida'])->withInput([request('password')]);
+                }
             }
-        }
-        if (isset($passSup)){
-            $query2 = Sup::where('password', '=', $passSup)->get();
-            if ($query2->count() != 0) {
-                $_SESSION["sup"] = "Registrado como SUPERVISOR ";
-                $SUPERVISOR = $_SESSION['sup'];
-                return view('sitio.validacion', compact('SUPERVISOR'));
-            }else{
-                return back()->withErrors(['passSup' => 'Contraseña de Supervisor no valida'])->withInput([request('password')]);
+            if (isset($passSup)) {
+                $query2 = Sup::where('password', '=', $passSup)->get();
+                if ($query2->count() != 0) {
+                    $_SESSION["sup"] = "Registrado como SUPERVISOR ";
+                    $SUPERVISOR = $_SESSION['sup'];
+                    return view('sitio.validacion', compact('SUPERVISOR'));
+                } else {
+                    return back()->withErrors(['passSup' => 'Contraseña de Supervisor no valida'])->withInput([request('password')]);
+                }
             }
+        } else {
+            return back()->withErrors(['campos' => 'No dejes ambos campos vacíos, rellena uno según te corresponda'])->withInput([request('password')]);
         }
-    }else{
-        return back()->withErrors(['campos' => 'No dejes ambos campos vacíos, rellena uno según te corresponda'])->withInput([request('password')]);
-    }
     }
     public function login()
     {
