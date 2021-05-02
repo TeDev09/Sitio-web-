@@ -24,8 +24,7 @@ body {
                         <th data-aos="fade-up" data-aos-duration="1000">Apelidos</th>
                         <th data-aos="fade-up" data-aos-duration="1000">Telefono</th>
                         <th data-aos="fade-up" data-aos-duration="1000">Dirección</th>
-                        <th data-aos="fade-up" data-aos-duration="1000">Pago hora</th>
-                        <th data-aos="fade-up" data-aos-duration="1000">Trabajo</th>
+                        <th data-aos="fade-up" data-aos-duration="1000">Proyecto</th>
                         <th data-aos="fade-up" data-aos-duration="1000">Detalles/Acciones</th>
                     </tr>
                 </thead>
@@ -37,7 +36,6 @@ body {
                         <td data-aos="fade-up" data-aos-duration="1000">{{$item->apellido}}</td>
                         <td data-aos="fade-up" data-aos-duration="1000">{{$item->telefono}}</td>
                         <td data-aos="fade-up" data-aos-duration="1000">{{$item->direccion}}</td>
-                        <td data-aos="fade-up" data-aos-duration="1000">{{$item->pago}}</td>
                         <td data-aos="fade-up" data-aos-duration="1000">{{$item->trabajo}}</td>
                         <td data-aos="fade-up" data-aos-duration="1000"><a href="{{ route('notas.detalle', $item) }}">Administrar<i class="small material-icons left">insert_chart</i></a></td>
                     </tr>

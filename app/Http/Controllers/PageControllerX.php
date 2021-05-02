@@ -141,19 +141,7 @@ class PageControllerX extends Controller
     }
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios,email'],
-            'password' => ['required', 'string', 'min:8'],
-            'nombre' => ['required', 'string', 'max:255'],
-            'apellido' => ['required', 'string', 'max:255'],
-            'telefono' => ['required', 'string', 'max:255'],
-            'direccion' => ['required', 'string', 'max:255'],
-            'pago' => ['required', 'string', 'max:255'],
-            'trabajo' => ['required', 'string', 'max:255'],
-        ]);
         $notaupdate = Usuario::findOrFail($id);
-        $notaupdate->email = $request->email;
-        $notaupdate->password = $request->password;
         $notaupdate->nombre = $request->nombre;
         $notaupdate->apellido = $request->apellido;
         $notaupdate->telefono = $request->telefono;

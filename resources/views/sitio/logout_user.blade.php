@@ -21,7 +21,7 @@ if (!isset($_SESSION['usuario'])){
     session_destroy();
     ?>
     <div class="center">
-        <h2>Has cerrado sesión como Usuario</h2>
+        <h2>Has cerrado sesión</h2>
         <h5>Vuelve a loguarte para entrar al sitio</h5>
         <a href="{{ route('login') }}">Loguearse</a>
     </div>

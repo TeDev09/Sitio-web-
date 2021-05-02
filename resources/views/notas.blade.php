@@ -108,10 +108,10 @@
                     </div>
 
                     <select id="trabajo" class="browser-default" name="trabajo" value="{{ old('trabajo')}}">
-                        <option value="" name="default" disabled selected>Escoje tu trabajo</option>
-                        <option value="trabajo1" name="trabajo1">trabajo 1</option>
-                        <option value="trabajo2" name="trabajo2">trabajo 2</option>
-                        <option value="trabajo3" name="trabajo3">trabajo 3</option>
+                        <option value="" name="default" disabled selected>Escoje un proyecto</option>
+                        <option value="trabajo1" name="trabajo1">Hilton Hotel</option>
+                        <option value="trabajo2" name="trabajo2">Fairfax Hospital</option>
+                        <option value="trabajo3" name="trabajo3">Amazon HQ</option>
                     </select>
 
                 </div>
