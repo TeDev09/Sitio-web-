@@ -75,7 +75,6 @@
         ?>
         <style>
             .cuad {
-                background-color: #d3d1d2;
                 display: flex;
                 justify-content: center;
                 align-items: center;

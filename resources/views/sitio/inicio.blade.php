@@ -1,5 +1,8 @@
 @extends('plantilla_simple')
 @section('cuadro')
+<?php
+$inicio ='_inicio_';
+?>
 <style>
 body {
     text-decoration: none !important;

@@ -72,11 +72,24 @@ session_start();
         <div class="col s12">
             <div class="col s3">
                 <div id="nav" class="sideBar" style="border-right: 1px solid white;">
-                    <a href="#" data-aos="fade-down" data-aos-duration="300">Tu cuenta</a>
+                    @if (isset($_SESSION['usuario']) or isset($_SESSION['sup']) or isset($_SESSION['admin']))
+                    <!-- Dropdown Trigger -->
+                    <a class='dropdown-button' href='#' data-activates='dropdown1'>Tu cuenta</a>
+
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a style="background-color: #b1b1b1">Admin</a></li>
+                        <li><a style="background-color: #b1b1b1" href="{{ route('cierre') }}">Salir</a></li>
+                        <div class="divider"></div>
+                    </ul>
+                    @else
+                    <a href="{{ route('login') }}" data-aos="fade-down" data-aos-duration="300" data-aos-delay="500">Entrar</a>
                     <div class="divider"></div>
-                    <a href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="100">Inicio</a>
+                    @endif
                     <div class="divider"></div>
-                    <a class="selected" href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="200">Datos</a>
+                    <a class="<?php if (isset($inicio)) { echo 'selected';}?>" href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="100">Inicio</a>
+                    <div class="divider"></div>
+                    <a class="" href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="200">Datos</a>
                     <div class="divider"></div>
                     <a href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="300">Administración</a>
                     <div class="divider"></div>
@@ -84,13 +97,6 @@ session_start();
                     <div class="divider"></div>
                     <a href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="500">Efectivo</a>
                     <div class="divider"></div>
-                    @if (isset($_SESSION['usuario']) or isset($_SESSION['sup']) or isset($_SESSION['admin']))
-                    <a href="{{ route('cierre') }}" data-aos="fade-down" data-aos-duration="300" data-aos-delay="500">Salir</a>
-                    <div class="divider"></div>
-                    @else
-                    <a href="{{ route('login') }}" data-aos="fade-down" data-aos-duration="300" data-aos-delay="500">Entrar</a>
-                    <div class="divider"></div>
-                    @endif
                     </nav>
                 </div>
             </div>
@@ -204,6 +210,15 @@ session_start();
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();
+            $('.dropdown-button').dropdown('open');
+            $('.dropdown-button').dropdown({
+                inDuration: 700,
+                outDuration: 400,
+                constrainWidth: true, // Does not change width of dropdown to that of the activator
+                hover: true, // Activate on hover
+                belowOrigin: true, // Displays dropdown below the button
+
+            });
         </script>
 </body>
 
