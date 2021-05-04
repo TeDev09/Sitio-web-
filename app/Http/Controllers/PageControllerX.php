@@ -13,6 +13,9 @@ use App\Providers\RouteServiceProvider;
 
 class PageControllerX extends Controller
 {
+    public function verificar(){ 
+        return view('sitio.peticion');
+    }
     public function admin()
     {
         return view('sitio.Admin');
@@ -111,7 +114,7 @@ class PageControllerX extends Controller
     }
     public function crear(Request $request)
     {
-        #return dd($request->all());
+        //return dd($request->all());
         $request->validate([
             'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios,email'],
             'password' => ['required', 'string'],
@@ -121,6 +124,7 @@ class PageControllerX extends Controller
             'direccion' => ['required', 'string', 'max:255'],
             'pago' => ['required', 'string', 'max:255'],
             'trabajo' => ['required', 'string', 'max:255'],
+            'ID_empleado' => ['required', 'string', 'max:255'],
         ]);
         $NotaNueva = new Usuario;
         $NotaNueva->email = $request->email;
@@ -131,6 +135,7 @@ class PageControllerX extends Controller
         $NotaNueva->direccion = $request->direccion;
         $NotaNueva->pago = $request->pago;
         $NotaNueva->trabajo = $request->trabajo;
+        $NotaNueva->ID_empleado = $request->ID_empleado;
         $NotaNueva->save();
         return back()->with('mnsj', 'Datos agregados');
     }

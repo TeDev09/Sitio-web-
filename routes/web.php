@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/validar', 'PageControllerX@validacion_u')->name('validante_u');
 
+Route::get('/verificate', 'PageControllerX@verificar')->name('verificar');
 
 Route::get('Registrate', 'PageControllerX@notas')->name('notas');
 Route::post('Registrate', 'PageControllerX@crear')->name('notas.crear');

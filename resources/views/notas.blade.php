@@ -27,7 +27,8 @@
         border-radius: 30px 30px 30px 30px;
         background-color: #d90000;
         color: white;
-    }    
+    }
+
     .divi {
         border-top: 6px solid rgb(0, 0, 0);
         width: 100%;
@@ -70,15 +71,20 @@
                 <div class="divi"></div>
                 <br>
 
-
-                <div class="col s6 ">
-                    <form action=" {{ route('notas.crear') }} " method="POST">
-                        @csrf
+                <form action=" {{ route('notas.crear') }} " method="POST">
+                    @csrf
+                    <div class="col s12">
+                        <div class="center">
+                            <label for="ID_empleado">Introduzca su ID de empleado:</label>
+                            <input type="text" id="ID_empleado" name="ID_empleado">
+                        </div>
+                    </div>
+                    <div class="col s6 ">
                         <div class="input-field">
                             <input id="email" type="email" value="{{ old('email')}}" name="email">
                             <label for="email">email</label>
                         </div>
-                        
+
                         <div class="input-field">
                             <input id="nombre" type="text" value="{{ old('nombre')}}" name="nombre">
                             <label for="nombre">Nombre</label>
@@ -92,39 +98,39 @@
                             <input id="telefono" type="text" value="{{ old('telefono')}}" name="telefono">
                             <label for="telefono">telefono</label>
                         </div>
-                </div>
-                <div class="col s6 push-s1">
-                <div class="input-field">
+                    </div>
+                    <div class="col s6 push-s1">
+                        <div class="input-field">
                             <input id="password" type="password" value="{{ old('password')}}" name="password">
                             <label for="password">password</label>
                         </div>
-                    <div class="input-field">
-                        <input id="direccion" type="text" value="{{ old('direccion')}}" name="direccion">
-                        <label for="direccion">direccion</label>
-                    </div>
-                    <div class="input-field">
-                        <input id="pago" type="text" value="{{ old('pago')}}" name="pago">
-                        <label for="pago">pago_hora</label>
-                    </div>
+                        <div class="input-field">
+                            <input id="direccion" type="text" value="{{ old('direccion')}}" name="direccion">
+                            <label for="direccion">direccion</label>
+                        </div>
+                        <div class="input-field">
+                            <input id="pago" type="text" value="{{ old('pago')}}" name="pago">
+                            <label for="pago">pago_hora</label>
+                        </div>
 
-                    <select id="trabajo" class="browser-default" name="trabajo" value="{{ old('trabajo')}}">
-                        <option value="" name="default" disabled selected>Escoje un proyecto</option>
-                        <option value="trabajo1" name="trabajo1">Hilton Hotel</option>
-                        <option value="trabajo2" name="trabajo2">Fairfax Hospital</option>
-                        <option value="trabajo3" name="trabajo3">Amazon HQ</option>
-                    </select>
+                        <select id="trabajo" class="browser-default" name="trabajo" value="{{ old('trabajo')}}">
+                            <option value="" name="default" disabled selected>Escoje un proyecto</option>
+                            <option value="trabajo1" name="trabajo1">Hilton Hotel</option>
+                            <option value="trabajo2" name="trabajo2">Fairfax Hospital</option>
+                            <option value="trabajo3" name="trabajo3">Amazon HQ</option>
+                        </select>
 
-                </div>
-                <div>
-                    <div class="divi">
-                        <br>
-                        <div class="center">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
-                                <i class="material-icons right">send</i>
-                            </button>
+                    </div>
+                    <div>
+                        <div class="divi">
+                            <br>
+                            <div class="center">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
