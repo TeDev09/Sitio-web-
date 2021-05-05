@@ -68,7 +68,7 @@ if (isset($conexion)){
                         <br>
                         <div class="chip">
                             <img src="https://www.pngfind.com/pngs/m/25-256439_6-2-success-png-image-success-png-transparent.png" alt="Nota agregada">
-                            Paso 2 completado, tu hora de entrada será tomada
+                            Paso 2 tu hora de entrada será tomada
                         </div>
                     <?php
                     session_start();
@@ -79,12 +79,12 @@ if (isset($conexion)){
                         <form action="{{ route('valHOUR', $idusu) }}">
                         @method('PUT')
                     @csrf
-                    <input type="text" value="<?php echo $idusu ?>" name="idusu">
-                    <input type="text" value="<?php echo $datetime ?>"  name="datetime">
+                    <input type="hidden" value="<?php echo $idusu ?>" name="idusu">
+                    <input type="hidden" value="<?php echo $datetime ?>"  name="datetime">
                         <br>
                         <div class="divider">
                         </div>
-                        <input  value="Siguiente" type="submit" name="enviarfecha" class="waves-effect green">
+                        <input style=" height: 30px;"  value="Siguiente" type="submit" name="enviarfecha" class="waves-effect green">
                     </form>
                     </div>
                     </div>

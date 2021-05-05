@@ -42,9 +42,9 @@
     ?>
             <div class="section container">
                 <div class="row">
-                <?php
-                                    echo $_SESSION['admin'] . ' <---Indicador de rol';
-                                    ?>
+                    <?php
+                    echo $_SESSION['admin'] . ' <---Indicador de rol';
+                    ?>
                     @yield('contenido')
 
                 </div>
@@ -55,9 +55,9 @@
         ?>
             <div class="section container">
                 <div class="row">
-                <?php
-                                    echo $_SESSION['admin'] . ' <---Indicador de rol';
-                                    ?>
+                    <?php
+                    echo $_SESSION['admin'] . ' <---Indicador de rol';
+                    ?>
                     @yield('contenido')
 
                 </div>

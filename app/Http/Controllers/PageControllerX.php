@@ -14,6 +14,25 @@ use App\Providers\RouteServiceProvider;
 
 class PageControllerX extends Controller
 {
+    public function valOUT(Request $request){
+        $enviarfecha = $request->get('enviar');
+        if (isset($enviarfecha)){ 
+            $datetime = $request->get('datetime');
+            $valID = $request->get('idusu');
+        if (!empty($valID) && !empty($datetime)) {
+
+            $notaupdate = Usuario::findOrFail($valID);
+            $notaupdate->hora_salida = $request->datetime;
+
+            $notaupdate->save();
+            return view('sitio.logout_user');
+        } else {
+            echo 'Error datos';
+        }
+    }else{ 
+        echo 'Datos no enviados';
+    }
+    }
     public function valHOUR(Request $request, $idusu)
     {
         $enviarfecha = $request->get('enviarfecha');
@@ -23,7 +42,7 @@ class PageControllerX extends Controller
         if (!empty($valID) && !empty($datetime)) {
 
             $notaupdate = Usuario::findOrFail($valID);
-            $notaupdate->remember_token = $request->datetime;
+            $notaupdate->hora_entrada = $request->datetime;
 
             $notaupdate->save();
             return view('sitio.comprobante3');
@@ -178,7 +197,7 @@ class PageControllerX extends Controller
     {
         //return dd($request->all());
         $request->validate([
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios,email'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string'],
             'nombre' => ['required', 'string', 'max:255'],
             'apellido' => ['required', 'string', 'max:255'],
@@ -186,7 +205,7 @@ class PageControllerX extends Controller
             'direccion' => ['required', 'string', 'max:255'],
             'pago' => ['required', 'string', 'max:255'],
             'trabajo' => ['required', 'string', 'max:255'],
-            'ID_empleado' => ['required', 'string', 'max:255'],
+            'ID_empleado' => ['required', 'string', 'max:255', 'unique:usuarios,ID_empleado'],
         ]);
         $NotaNueva = new Usuario;
         $NotaNueva->email = $request->email;

@@ -53,7 +53,7 @@
                             <img src="https://www.pngfind.com/pngs/m/25-256439_6-2-success-png-image-success-png-transparent.png" alt="Nota agregada">
                             Paso 2 completado, tu hora de entrada a sido tomada <?php
                             session_start();
-                            echo $_SESSION['idusu'];
+                            $_SESSION['idusu'];
                             ?>
                         </div>
                         <br>

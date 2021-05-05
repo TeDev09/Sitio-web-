@@ -50,13 +50,14 @@
                         {{ session('mnsj') }}
                         <i class="close material-icons">close</i>
                     </div>
-                    <div class="chip" style="display: block;"><a href="{{ route('login') }}">Logueate</a></div>
+                    <div class="chip" style="display: block;"><a href="{{ route('verificar') }}">Logueate</a></div>
                     @endif
 
                     @if ($errors->any())
                     <div>
                         <div class="divider"></div>
                         <h5><b>Revisa los campos:</b></h5>
+                        <p class="center">(Duplicados, información escasa o no válida)</p>
                         <div class="divider"></div>
                         <br>
                         @include('errors')
@@ -115,9 +116,9 @@
 
                         <select id="trabajo" class="browser-default" name="trabajo" value="{{ old('trabajo')}}">
                             <option value="" name="default" disabled selected>Escoje un proyecto</option>
-                            <option value="trabajo1" name="trabajo1">Hilton Hotel</option>
-                            <option value="trabajo2" name="trabajo2">Fairfax Hospital</option>
-                            <option value="trabajo3" name="trabajo3">Amazon HQ</option>
+                            <option value="Hilton Hotel" name="trabajo1">Hilton Hotel</option>
+                            <option value="Fairfax Hospital" name="trabajo2">Fairfax Hospital</option>
+                            <option value="Amazon HQ" name="trabajo3">Amazon HQ</option>
                         </select>
 
                     </div>

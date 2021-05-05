@@ -64,12 +64,20 @@ session_start();
         }
     }
 </style>
-<title><?php
-                    echo $_SESSION['idusu'];
-                    ?></title>
+<title>Sitio Web</title>
 </head>
 
 <body>
+    <?php
+    if (isset($_SESSION['idusu'])){
+        $idusu = $_SESSION['idusu'];
+    }
+    use Carbon\Carbon;
+    $hoy = Carbon::now('America/El_Salvador');
+    // Carbon embed 822 languages:
+    'Fecha y hora actual: ' . $hoy->locale('es')->isoFormat('dddd, MMMM Do YYYY, h:mm');
+    $datetime = $hoy->toDateTimeString()
+    ?>
     <div id="contenido">
         <div class="col s12">
             <div class="col s3">
@@ -80,12 +88,15 @@ session_start();
 
                     <!-- Dropdown Structure -->
                     <ul id='dropdown1' class='dropdown-content'>
-                        <li><a style="background-color: #b1b1b1">Admin</a></li>
-                        <li><a style="background-color: #b1b1b1" href="{{ route('cierre') }}">
-                        <form action="">
-                        <input type="hidden" name="" value="xdxd">
-                        <input type="submit" value="salir">
-                        </form></a></li>
+                        <li><a style="background-color: #b1b1b1">
+                                <form action="{{ route('cierre.form') }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" value="<?php echo $idusu ?>" name="idusu">
+                                    <input type="hidden" value="<?php echo $datetime ?>" name="datetime">
+                                    <input style="color:black;" class="btn yellow" type="submit" name="enviar" value="salir">
+                                </form>
+                            </a></li>
                         <div class="divider"></div>
                     </ul>
                     @else
@@ -93,15 +104,11 @@ session_start();
                     <div class="divider"></div>
                     @endif
                     <div class="divider"></div>
-                    <a class="<?php if (isset($inicio)) { echo 'selected';}?>" href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="100">Inicio</a>
+                    <a class="<?php if (isset($inicio)) {
+                                    echo 'selected';
+                                } ?>" href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="100">Datos</a>
                     <div class="divider"></div>
-                    <a class="" href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="200">Datos</a>
-                    <div class="divider"></div>
-                    <a href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="300">Administración</a>
-                    <div class="divider"></div>
-                    <a href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="400">Cuentas</a>
-                    <div class="divider"></div>
-                    <a href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="500">Efectivo</a>
+                    <a class="" href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="200">Pagos</a>
                     <div class="divider"></div>
                     </nav>
                 </div>
@@ -151,11 +158,7 @@ session_start();
                         <div class="row">
                             <div class="col s12">
                                 <div style="background-color: #b1b1b1" class="col s12">
-                                    <?php
-                                    echo $_SESSION['usuario'] . ' <---Indicador de rol';
-                                    ?>
-                                    <a href="{{ route('cierre') }}">Cerrar sesión</a>
-                                    @yield('cuadro')
+                                <h1 class="center">No tienes los permisos para ver este contenido.</h1>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +199,7 @@ session_start();
                                     <div class="center">
                                         <h3 class="center">DEBES ESTAR LOGUEADO PARA VISUALIZAR ESTE CONTENIDO</h3>
                                         <div class="divider"></div>
-                                        <h4 style="display: inline-block;" class="left"><a href="{{ route('login') }}">LOGUEARSE</a></h4>
+                                        <h4 style="display: inline-block;" class="left"><a href="{{ route('verificar') }}">LOGUEARSE</a></h4>
                                         <h4 style="display: inline-block;" class="center"><a href="{{ route('admin') }}">Admin</a></h4>
                                         <h4 style="display: inline-block;" class="right"><a href="{{ route('notas') }}">CREAR CUENTA</a></h4>
                                     </div>
