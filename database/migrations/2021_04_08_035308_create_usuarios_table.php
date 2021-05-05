@@ -23,7 +23,7 @@ class CreateUsuariosTable extends Migration
             $table->string('telefono');
             $table->string('pago');
             $table->string('trabajo');
-            $table->string('token')->nullable();
+            $table->string('ID_empleado');
             $table->timestamps();
             $table->rememberToken();
         });

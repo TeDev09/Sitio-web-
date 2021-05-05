@@ -1,3 +1,20 @@
+<?php
+//variables y conexion en mismo archivo
+$host ='localhost';
+$user ='root';
+$pass='';
+$bd='sistemabd';
+$conexion= mysqli_connect($host,$user,$pass,$bd); 
+if (isset($conexion)){
+    /* echo '<script>
+    alert("conexion exitosa");
+    </script>'; */
+}else{
+    echo '<script>
+    alert("ERROR al conectar");
+    </script>';
+}
+?>
 <html lang="es">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +44,7 @@
         float: left;
     }
 </style>
-<title>Validanción paso 1</title>
+<title>paso 2</title>
 </head>
 
 <body>
@@ -44,35 +61,33 @@
                     echo 'Fecha y hora actual: '.$hoy->locale('es')->isoFormat('dddd, MMMM Do YYYY, h:mm');
                     $datetime = $hoy->toDateTimeString()
                     ?>
-                    <form action="{{ route('valID') }}" method="POST">
-                    @csrf
-                    <input type="hidden" value="<?php echo $datetime ?>" name="datetime">
-                        <div class="col s12">
-                            <h3 class="center">Datos de entrada</h3>
-                            @if ($errors->any())
-                            @error('query1')
-                            <div class="center">
-                                <div class="chip">
-                                <img src="https://th.bing.com/th/id/Rb6a4397743db63db457d6b1007091831?rik=M6kIZwl1oAU4iw&riu=http%3a%2f%2fst2.depositphotos.com%2f1454412%2f5924%2fi%2f950%2fdepositphotos_59246743-stock-photo-big-red-x-button.jpg&ehk=r7ItdEubX8ubwY%2bW08hfrxAZRnR3HNcHgZvgtfFhkzU%3d&risl=&pid=ImgRaw" alt="Error">
-                                    {{ $message }}
-                                    </div>
-                            </div>
-                            @enderror
-                            @endif
-                            <div class="divi"></div>
-                            <p>ㅤ</p>
-                            <div class="col s12">
-                                <div class="center">
-                                    <label for="ID_empleado">Introduzca su ID de empleado:</label>
-                                    <input type="text" id="ID_empleado" name="ID_empleado" class="validate" minlength="5">
-                                </div>
-                            </div>
-                            <p>ㅤ</p>
-                            <div class="divi"></div>
+                    <div>
+                <div class="center">
+                        <h4>Validación Completada</h4>
+                        <div class="divi"></div>
+                        <br>
+                        <div class="chip">
+                            <img src="https://www.pngfind.com/pngs/m/25-256439_6-2-success-png-image-success-png-transparent.png" alt="Nota agregada">
+                            Paso 2 completado, tu hora de entrada será tomada
                         </div>
-                        <p>ㅤ</p>
-                        <div class="center"><input type="submit" value="Enviar"></div>
+                    <?php
+                    session_start();
+                    $_SESSION['idusu'];
+                    $idusu = $_SESSION['idusu'];
+                    
+                    ?>
+                        <form action="{{ route('valHOUR', $idusu) }}">
+                        @method('PUT')
+                    @csrf
+                    <input type="text" value="<?php echo $idusu ?>" name="idusu">
+                    <input type="text" value="<?php echo $datetime ?>"  name="datetime">
+                        <br>
+                        <div class="divider">
+                        </div>
+                        <input  value="Siguiente" type="submit" name="enviarfecha" class="waves-effect green">
                     </form>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>

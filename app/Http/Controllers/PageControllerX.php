@@ -11,9 +11,72 @@ use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 use App\Providers\RouteServiceProvider;
 
+
 class PageControllerX extends Controller
 {
-    public function verificar(){ 
+    public function valHOUR(Request $request, $idusu)
+    {
+        $enviarfecha = $request->get('enviarfecha');
+        if (isset($enviarfecha)){ 
+            $datetime = $request->get('datetime');
+            $valID = $request->get('idusu');
+        if (!empty($valID) && !empty($datetime)) {
+
+            $notaupdate = Usuario::findOrFail($valID);
+            $notaupdate->remember_token = $request->datetime;
+
+            $notaupdate->save();
+            return view('sitio.comprobante3');
+        } else {
+            echo 'Error datos';
+        }
+    }else{ 
+        echo 'Datos no enviados';
+    }
+    }
+
+    public function valID(Request $request)
+    {
+        $host = 'localhost';
+        $user = 'root';
+        $pass = '';
+        $bd = 'sistemabd';
+        $conexion = mysqli_connect($host, $user, $pass, $bd);
+        if (isset($conexion)) {
+            /* echo '<script>
+    alert("conexion exitosa");
+    </script>'; */
+        } else {
+            echo '<script>
+    alert("ERROR al conectar");
+    </script>';
+        }
+        $valID = $request->get('ID_empleado');
+        $datetime = $request->get('datetime');
+        if (!empty($valID)) {
+            $query1 = Usuario::where('ID_empleado', '=', $valID)->get();
+            if ($query1->count() != 0) {
+                $comprobar = "SELECT id FROM usuarios WHERE ID_empleado ='$valID'";
+                $resultado1 = mysqli_query($conexion, $comprobar) or die('ERROR'); //se realiza el query
+                while ($registro2 = mysqli_fetch_array($resultado1)) {
+                    $id = $registro2['id'];
+                }
+
+                return view('sitio.comprobante1', compact('id'));
+            } else {
+                return back()->withErrors(['query1' => 'ID no encontrada'])->withInput([request('ID_empleado')]);
+            }
+        } else {
+            echo 'Error al introducir los datos';
+        }
+    }
+
+    public function fecha()
+    {
+        return view('sitio.comprobante2');
+    }
+    public function verificar()
+    {
         return view('sitio.peticion');
     }
     public function admin()
@@ -94,7 +157,6 @@ class PageControllerX extends Controller
             return back()->withErrors(['email' => 'email no valido'])->withInput([request('name')]);
         }
     }
-
 
     public function notas()
     {

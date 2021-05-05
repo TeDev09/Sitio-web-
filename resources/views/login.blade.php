@@ -44,6 +44,10 @@
             <div class="row">
                 <div class="center">
                     <h4>Inicia sesión</h4>
+                    <?php
+                            session_start();
+                            echo $_SESSION['idusu'];
+                            ?>
                     @if ($errors->any())
                     <div>
                         <div class="divider"></div>

@@ -64,7 +64,9 @@ session_start();
         }
     }
 </style>
-<title></title>
+<title><?php
+                    echo $_SESSION['idusu'];
+                    ?></title>
 </head>
 
 <body>
@@ -79,7 +81,11 @@ session_start();
                     <!-- Dropdown Structure -->
                     <ul id='dropdown1' class='dropdown-content'>
                         <li><a style="background-color: #b1b1b1">Admin</a></li>
-                        <li><a style="background-color: #b1b1b1" href="{{ route('cierre') }}">Salir</a></li>
+                        <li><a style="background-color: #b1b1b1" href="{{ route('cierre') }}">
+                        <form action="">
+                        <input type="hidden" name="" value="xdxd">
+                        <input type="submit" value="salir">
+                        </form></a></li>
                         <div class="divider"></div>
                     </ul>
                     @else
