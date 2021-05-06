@@ -112,11 +112,11 @@ body {
                                 <h5 class="center">Trabajadas:</h5>
                                 <div class="divi"></div>
                                 <br>
-                                <h6 class="center"><b> <?php if(empty($resta)){ echo "Error al procesar." ; }else{ echo $resta; } ?> </b></h6>
+                                <h6 class="center"><b> <?php if(empty($resta)){ echo "Error al procesar." ; }else{ echo $resta.' Horas en total'; } ?> </b></h6>
                                 <h5 class="center">Pago:</h5>
                                 <div class="divi"></div>
                                 <br>
-                                <h6 class="center"><b> <?php if(empty($total)){ echo "Error al procesar." ; }else{ echo $total; } ?> </b></h6>
+                                <h6 class="center"><b> <?php if(empty($total)){ echo "Error al procesar." ; }else{ echo '$'.$total.' A pagar'; } ?> </b></h6>
                                 </div>
                             </div>
                             <div>
