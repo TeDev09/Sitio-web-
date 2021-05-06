@@ -36,7 +36,7 @@ body {
             <div class="col s12">
 <?php
     session_start();
-if (isset($_SESSION['usuario'])){ 
+if (isset($_SESSION['usuario']) or isset($_SESSION['sup']) or isset($_SESSION['admin'])){ 
     session_destroy();
     ?>
     <div class="center">

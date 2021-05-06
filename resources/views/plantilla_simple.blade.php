@@ -83,6 +83,14 @@ session_start();
             <div class="col s3">
                 <div id="nav" class="sideBar" style="border-right: 1px solid white;">
                     @if (isset($_SESSION['usuario']) or isset($_SESSION['sup']) or isset($_SESSION['admin']))
+                    <?php
+                    if (isset($_SESSION['sup']) or isset($_SESSION['admin'])){ 
+                    ?>
+                    <a class="" href="{{ route('cierre.form') }}" data-aos="fade-down" data-aos-duration="300" data-aos-delay="200">Salir</a>
+                    <div class="divider"></div>
+                    <?php
+                    }else{ 
+                    ?>
                     <!-- Dropdown Trigger -->
                     <a class='dropdown-button' href='#' data-activates='dropdown1'>Tu cuenta</a>
 
@@ -99,6 +107,9 @@ session_start();
                             </a></li>
                         <div class="divider"></div>
                     </ul>
+                    <?php
+                    }
+                    ?>
                     @else
                     <a href="{{ route('login') }}" data-aos="fade-down" data-aos-duration="300" data-aos-delay="500">Entrar</a>
                     <div class="divider"></div>
@@ -108,8 +119,19 @@ session_start();
                                     echo 'selected';
                                 } ?>" href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="100">Datos</a>
                     <div class="divider"></div>
-                    <a class="" href="#" data-aos="fade-down" data-aos-duration="300" data-aos-delay="200">Pagos</a>
+                    <?php
+                    if (isset($idusu)){ 
+                    ?>
+                    <a class="" href="{{ route('pagos', $idusu) }}" data-aos="fade-down" data-aos-duration="300" data-aos-delay="200">Pagos</a>
                     <div class="divider"></div>
+                    <?php
+                    }else{
+                    ?>
+                    <a class="" href="{{ route('pagos') }}" data-aos="fade-down" data-aos-duration="300" data-aos-delay="200">Pagos</a>
+                    <div class="divider"></div>
+                    <?php
+                    }
+                    ?>
                     </nav>
                 </div>
             </div>

@@ -14,6 +14,9 @@ use App\Providers\RouteServiceProvider;
 
 class PageControllerX extends Controller
 {
+    public function pagos($idusu=''){
+        return view('sitio.pagos', compact('idusu'));
+    }
     public function valOUT(Request $request){
         $enviarfecha = $request->get('enviar');
         if (isset($enviarfecha)){ 

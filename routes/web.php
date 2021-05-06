@@ -30,6 +30,7 @@ Route::get('/inicio', 'PageControllerX@principal')->name('principal');
 Route::get('/admin', 'PageControllerX@admin')->name('admin');
 Route::post('/admin', 'PageControllerX@admin_verify')->name('admin.form');
 
+Route::get('/pagos/{idusu?}', 'PageControllerX@pagos')->name('pagos');
 
 
 Route::get('/logueate', 'PageControllerX@login')->name('login');

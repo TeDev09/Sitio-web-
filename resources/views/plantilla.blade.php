@@ -27,15 +27,6 @@
 
 <body>
 
-
-
-
-
-
-
-
-
-
     <?php
     if (isset($_SESSION['admin']) or isset($_SESSION['sup']) or isset($_SESSION['usuario'])) {
         if (isset($_SESSION['admin'])) {
