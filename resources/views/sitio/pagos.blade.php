@@ -135,6 +135,7 @@ body {
                             if (isset($idusu) && !empty($idusu)) {
                         ?>
                             <h3 class="center">Usuario ID: <?php echo $idusu ?>, tus horas de entrada/salida son:</h3>
+                            <h6 class="center">Un administrador te notificará de tu paga con forme a estos datos. Si no tienes hora de salida debes volver a la página inicial y cerrar sesión (Al cerrar sesión se toma tu hora de salida automáticamente).</h6>
                         <?php
                         $comprobar = "SELECT * FROM usuarios WHERE id ='$idusu'";
                         $resultado1 = mysqli_query($conexion, $comprobar) or die('ERROR'); //se realiza el query
@@ -161,11 +162,11 @@ body {
                                 <br>
                                 <h6 class="center"><b> <?php if(empty($hora_salida)){ echo "Debes cerrar sesión para tomar tu hora de salida." ; }else{ echo $hora_salida; } ?> </b></h6>
                                 </div>
-                            </div>
+                            </div> 
                         <?php
                             }else{ 
                         ?>
-                        <h3 class="center">Debes estar Logueado para ver este contenido.</h3>
+                        <h3 class="center">Debes estar <a href="{{ route('verificar') }}">Logueado</a> para ver este contenido.</h3>
                         <?php
                             }
                     }

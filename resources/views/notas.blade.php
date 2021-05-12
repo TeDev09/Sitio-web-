@@ -111,7 +111,7 @@
                         </div>
                         <div class="input-field">
                             <input id="pago" type="text" value="{{ old('pago')}}" name="pago">
-                            <label for="pago">pago_hora</label>
+                            <label for="pago">pago por hora</label>
                         </div>
 
                         <select id="trabajo" class="browser-default" name="trabajo" value="{{ old('trabajo')}}">

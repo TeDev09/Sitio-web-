@@ -64,7 +64,7 @@ session_start();
         }
     }
 </style>
-<title>Sitio Web</title>
+<title>sitio Web</title>
 </head>
 
 <body>
@@ -180,7 +180,7 @@ session_start();
                         <div class="row">
                             <div class="col s12">
                                 <div style="background-color: #b1b1b1" class="col s12">
-                                <h1 class="center">No tienes los permisos para ver este contenido.</h1>
+                                <h1 class="center">No tienes los permisos para ver este contenido. Ve a "Pagos" para continuar</h1>
                                 </div>
                             </div>
                         </div>

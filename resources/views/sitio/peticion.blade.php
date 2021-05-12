@@ -66,6 +66,7 @@
                                     <label for="ID_empleado">Introduzca su ID de empleado:</label>
                                     <input type="text" id="ID_empleado" name="ID_empleado" class="validate" minlength="5">
                                 </div>
+                                <small class="center"><b>¿No tienes ID de empleado? Crea una cuenta <a href="{{ route('notas') }}">aquí</a> </b></small>
                             </div>
                             <p>ㅤ</p>
                             <div class="divi"></div>
