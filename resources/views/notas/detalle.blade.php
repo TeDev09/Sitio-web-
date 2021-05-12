@@ -65,7 +65,7 @@
             <thead>
                 <tr>
                     <th>Proyecto</th>
-                    <th>Pago hora</th>
+                    <th>Pago por hora</th>
                     <th>Creado el</th>
                     <th>Actualizado el</th>
                     <th data-aos="fade-up" data-aos-duration="1000">Borrar</th>

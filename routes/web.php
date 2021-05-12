@@ -26,7 +26,7 @@ Route::put('/log_out', 'PageControllerX@valOUT')->name('cierre.form');
 
 Route::get('Registrate', 'PageControllerX@notas')->name('notas');
 Route::post('Registrate', 'PageControllerX@crear')->name('notas.crear');
-Route::get('/inicio', 'PageControllerX@principal')->name('principal');
+Route::get('/', 'PageControllerX@principal')->name('principal');
 Route::get('/admin', 'PageControllerX@admin')->name('admin');
 Route::post('/admin', 'PageControllerX@admin_verify')->name('admin.form');
 

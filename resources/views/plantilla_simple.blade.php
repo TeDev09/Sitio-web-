@@ -219,7 +219,7 @@ session_start();
                                 <div>
                                     <p>
                                     <div class="center">
-                                        <h3 class="center">DEBES ESTAR LOGUEADO PARA VISUALIZAR ESTE CONTENIDO</h3>
+                                        <h3 class="center">DEBES INICIAR SESIÓN PARA VISUALIZAR ESTE CONTENIDO</h3>
                                         <div class="divider"></div>
                                         <h4 style="display: inline-block;" class="left"><a href="{{ route('verificar') }}">LOGUEARSE</a></h4>
                                         <h4 style="display: inline-block;" class="center"><a href="{{ route('admin') }}">Admin</a></h4>

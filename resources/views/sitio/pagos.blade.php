@@ -166,10 +166,14 @@ body {
                         <?php
                             }else{ 
                         ?>
-                        <h3 class="center">Debes estar <a href="{{ route('verificar') }}">Logueado</a> para ver este contenido.</h3>
+                        <h3 class="center">Debes <a href="{{ route('verificar') }}">iniciar sesión</a> para ver este contenido.</h3>
                         <?php
                             }
                     }
+                }else{
+                ?>    
+                <h3 class="center">Debes <a href="{{ route('verificar') }}">iniciar sesión</a> para ver este contenido.</h3>
+                <?php
                 }
                 ?>
             </div>
